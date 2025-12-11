@@ -1,5 +1,4 @@
 (() => {
-  // ---- Утилиты матриц 4x4 (row-major) ----
   function matIdentity() {
     return [
       1,0,0,0,
@@ -25,7 +24,6 @@
 
   function matTranslate(tx, ty, tz){
     const m = matIdentity();
-    // row-major: последний столбец для переноса
     m[3] = tx;
     m[7] = ty;
     m[11] = tz;
@@ -68,7 +66,6 @@
     return [nx, ny, nz];
   }
 
-  // ---- Модель буквы D ----
   function buildLetterD(depth = 0.6, curveSegments=22){
     const vertices = [];
     const edges = [];
@@ -80,8 +77,8 @@
     const zb = -depth/2;
 
     // front
-    vertices.push([top[0], top[1], zf]);    // 0
-    vertices.push([bottom[0], bottom[1], zf]); // 1
+    vertices.push([top[0], top[1], zf]);    
+    vertices.push([bottom[0], bottom[1], zf]); 
     for(let i=0;i<=curveSegments;i++){
       const t = Math.PI * (i/curveSegments);
       const x = cx + radius*Math.cos(Math.PI/2 - t);
@@ -119,7 +116,6 @@
     return {vertices, edges};
   }
 
-  // ---- Канвасы и UI ----
   const mainCanvas = document.getElementById('mainCanvas');
   const ctx = mainCanvas.getContext('2d');
   const projXY = document.getElementById('projXY').getContext('2d');
@@ -136,7 +132,6 @@
     c.fillRect(0,0,w,h);
   }
 
-  // ---- Проекции ----
   function projectPerspective(p, w, h){
     const camZ = 3, f=600;
     const z = p[2] + camZ;
@@ -158,7 +153,6 @@
     }
   }
 
-  // ---- Основной рендер ----
   function draw(){
     clearCanvas(ctx, mainCanvas.width, mainCanvas.height);
     const showAxes = document.getElementById('showAxes').checked;
@@ -196,8 +190,7 @@
     drawProjectionCanvas(projXZ,projXZ.canvas.width,projXZ.canvas.height,transformed,projectOrthoXZ);
     drawProjectionCanvas(projYZ,projYZ.canvas.width,projYZ.canvas.height,transformed,projectOrthoYZ);
   }
-
-  // ---- UI обработчики ----
+  
   document.getElementById('applyTranslate').addEventListener('click', ()=>{
     const tx=parseFloat(document.getElementById('tx').value)||0;
     const ty=parseFloat(document.getElementById('ty').value)||0;
