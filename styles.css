@@ -1,0 +1,24 @@
+:root{
+  --bg:#f6f8fb;
+  --panel:#ffffff;
+  --accent:#2b7cff;
+  --muted:#666;
+}
+*{box-sizing:border-box;font-family:Inter,ui-sans-serif,system-ui,Arial,Helvetica,sans-serif}
+body{margin:16px;background:var(--bg);color:#111}
+h1{margin:0 0 12px 0;font-size:20px}
+.layout{display:flex;gap:16px}
+.left{flex:1}
+.right{width:380px}
+canvas{background:#fff;border:1px solid #ddd;display:block;margin-bottom:8px}
+.controls{margin-top:8px}
+.controls fieldset{background:var(--panel);border:1px solid #ddd;padding:8px;border-radius:6px}
+.row{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap}
+.row label{min-width:230px;color:var(--muted);font-size:13px}
+input[type="number"]{width:68px;padding:4px}
+button{padding:6px 8px;border-radius:6px;border:1px solid #bbb;background:linear-gradient(#fff,#eee);cursor:pointer}
+.panel{background:var(--panel);padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid #e3e6ea}
+.projections{display:flex;gap:8px;justify-content:space-between}
+.projLabel{text-align:center;font-size:13px;color:var(--muted)}
+textarea{width:100%;padding:8px;font-family:monospace}
+footer{margin-top:10px;color:#666;font-size:13px}
